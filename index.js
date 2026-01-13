@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const port = 9000
@@ -8,13 +9,13 @@ app.get('/', (req, res) => {
 app.get('/twitch', (req, res) => {
   res.send('Hasu/twitch.com')
 })
-// app.get('/login', (req, res) => {
-//   res.send('Hey user, Welcome to my twitch channel')
-// })
-// app.get('/youtube', (req, res) => {
-//   res.send('No cares about Youtube bro')
-// })
+app.get('/login', (req, res) => {
+  res.send('Hey user, Welcome to my twitch channel')
+})
+app.get('/youtube', (req, res) => {
+  res.send('No cares about Youtube bro')
+})
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Example app listening on port ${port}`)
 })
